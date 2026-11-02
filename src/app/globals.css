@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
+/* 따뜻한 크림 → 살구 톤 팔레트 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #fff8ef;
+  --peach-light: #fdeadb;
+  --peach: #f8d5bf;
+  --foreground: #3a2e28;
+  --muted: #8a7468;
+  color-scheme: light;
 }
 
 @theme inline {
-  --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--cream);
 }
 
 body {
-  background: var(--background);
+  min-height: 100dvh;
   color: var(--foreground);
-  font-family: var(--font-geist-sans), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: var(--font-sans);
+  background:
+    radial-gradient(60rem 40rem at 50% -10%, rgba(255, 255, 255, 0.9), transparent 60%),
+    linear-gradient(170deg, var(--cream) 0%, var(--peach-light) 55%, var(--peach) 100%);
+  background-attachment: fixed;
+  word-break: keep-all;
+}
+
+/* 글래스 효과가 비칠 수 있도록 은은한 색 번짐을 깔아 둡니다 (장식용) */
+.ambient-blob {
+  position: fixed;
+  z-index: -1;
+  border-radius: 9999px;
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+::selection {
+  background: rgba(232, 150, 110, 0.3);
 }

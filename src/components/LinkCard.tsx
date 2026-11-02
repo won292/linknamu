@@ -23,9 +23,21 @@ export default function LinkCard({ id, title, url }: Props) {
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => recordClick(id)}
-      className="block w-full rounded-xl border-2 border-foreground/15 px-5 py-4 text-center font-medium transition hover:-translate-y-0.5 hover:border-foreground/40 hover:bg-foreground/5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+      className="group relative flex w-full items-center justify-center rounded-2xl border border-white/70 bg-white/45 px-12 py-[1.125rem] text-[0.9375rem] font-semibold tracking-tight shadow-[0_8px_24px_-12px_rgba(140,80,50,0.25),inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl transition duration-300 ease-out hover:-translate-y-px hover:bg-white/60 hover:shadow-[0_12px_28px_-12px_rgba(140,80,50,0.32),inset_0_1px_0_rgba(255,255,255,0.9)] active:translate-y-0 active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground/60 motion-reduce:transition-none"
     >
       {title}
+      <svg
+        aria-hidden
+        viewBox="0 0 16 16"
+        className="absolute right-5 h-3.5 w-3.5 text-muted opacity-0 transition duration-300 group-hover:translate-x-0.5 group-hover:opacity-100"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M5 11 11 5M6 5h5v5" />
+      </svg>
     </a>
   );
 }
